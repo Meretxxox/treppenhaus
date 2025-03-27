@@ -1,0 +1,176 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mein treppenhaus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        body {
+            background: pink url('background.gif') repeat;
+            color: hotpink;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            cursor: url('https://cur.cursors-4u.net/nature/nat-11/nat1076.cur'), auto;
+            overflow-y: auto;
+            position: relative;
+            min-height: 200vh;
+        }
+        h1 {
+            font-size: 36px;
+            text-shadow: 2px 2px 4px lightpink;
+            font-family: 'Press Start 2P', cursive;
+            margin-top: 150px;
+        }
+        .subtitle {
+            font-size: 24px;
+            color: hotpink;
+            text-shadow: 1px 1px 3px lightpink;
+            margin-top: 40px;
+        }
+        model-viewer {
+            display: block;
+            margin: 20px auto;
+        }
+        .loading-container, .fortune-box {
+            width: 50%;
+            margin: 60px auto;
+            background: white;
+            padding: 10px;
+            border: 3px dashed hotpink;
+        }
+        .loading-bar {
+            width: 0%;
+            height: 20px;
+            background: repeating-linear-gradient(45deg, pink 0%, pink 10px, lightpink 10px, lightpink 20px);
+            background-size: 40px 40px;
+            animation: moveStripes 1s linear infinite, loadProgress 3s forwards;
+        }
+        @keyframes moveStripes {
+            from { background-position: 0 0; }
+            to { background-position: 40px 0; }
+        }
+        @keyframes loadProgress {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+        .fortune-box {
+            display: none;
+            text-align: center;
+            transition: height 0.3s ease;
+        }
+        .fortune-box.show-result {
+            height: auto;
+            padding: 5px;
+        }
+        .fortune-gif {
+            width: 80px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+        }
+        .fortune-button {
+            background: hotpink;
+            color: white;
+            padding: 10px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 10px auto;
+        }
+        .fortune-result {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .phone-gif {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            width: 150px;
+            height: auto;
+        }
+        .phone-left {
+            left: 10%;
+        }
+        .phone-right {
+            right: 10%;
+        }
+        .bottom-center {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>💖 Wilkommen in meinem Treppenhaus 💖</h1>
+    <p class="subtitle">things are not always as they seem</p>
+    
+    <model-viewer id="model-viewer" src="treppenhaus-armgart.glb"
+                  ios-src="treppenhaus-armgart.usdz"
+                  alt="Treppenhaus"
+                  ar
+                  auto-rotate
+                  camera-controls
+                  ar-modes="webxr scene-viewer quick-look" 
+                  environment-image="neutral">   
+    </model-viewer>
+
+    <div class="loading-container" id="loadingContainer">
+        <p>Loading…</p>
+        <div class="loading-bar" id="loadingBar"></div>
+    </div>
+    
+    <div class="fortune-box" id="fortuneBox">
+        <h2>🔮 Wie beginnt heute dein Tag? 🔮</h2>
+        <img src="eightball.gif" alt="Magic 8-Ball" class="fortune-gif">
+        <button class="fortune-button" onclick="getFortune()">Get Your Fortune</button>
+        <p class="fortune-result" id="fortuneResult"></p>
+    </div>
+    
+    <model-viewer id="model-viewer-2" src="treppenhaus-armgart.glb"
+                  ios-src="treppenhaus-armgart.usdz"
+                  alt="Treppenhaus"
+                  ar
+                  auto-rotate
+                  camera-controls
+                  ar-modes="webxr scene-viewer quick-look" 
+                  environment-image="neutral">   
+    </model-viewer>
+    
+    <audio autoplay loop>
+        <source src="https://www.myinstants.com/media/sounds/paris-hilton-stars-are-blind.mp3" type="audio/mp3">
+    </audio>
+    
+    <img src="phone.gif" alt="Ringing Phone" class="phone-gif phone-left">
+    <img src="phone.gif" alt="Ringing Phone" class="phone-gif phone-right">
+    <img src="you-suck.gif" alt="You Suck" class="bottom-center">
+    
+    <script>
+        // Fake loading bar effect
+        setTimeout(() => {
+            document.getElementById("loadingContainer").style.display = "none";
+            document.getElementById("fortuneBox").style.display = "block";
+        }, 3000);
+
+        // Y2K fortune teller
+        function getFortune() {
+            let fortunes = [
+                "✨ You are the main character today! ✨",
+                "💖 Someone is crushing on you… 👀",
+                "🌟 Expect a surprise message soon!",
+                "💅 You’re serving LOOKS today, queen!",
+                "🛜 Your Wi-Fi aura is extra strong today, use it wisely!"
+            ];
+            let randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+            document.getElementById("fortuneResult").innerText = randomFortune;
+            document.getElementById("fortuneBox").classList.add("show-result");
+        }
+    </script>
+</body>
+</html>
