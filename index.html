@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
         body {
             background: pink url('background.gif') repeat;
             color: hotpink;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-family: 'Dancing Script', cursive, sans-serif;
             text-align: center;
             cursor: url('https://cur.cursors-4u.net/nature/nat-11/nat1076.cur'), auto;
             overflow-y: auto;
@@ -22,11 +22,14 @@
             text-shadow: 2px 2px 4px lightpink;
             font-family: 'Press Start 2P', cursive;
             margin-top: 150px;
+            position: relative;
+            display: inline-block;
         }
         .subtitle {
-            font-size: 24px;
+            font-size: 30px;
             color: hotpink;
             text-shadow: 1px 1px 3px lightpink;
+            font-family: 'Dancing Script', cursive;
             margin-top: 40px;
         }
         model-viewer {
@@ -78,10 +81,12 @@
             font-size: 16px;
             cursor: pointer;
             display: block;
+            font-family: 'Dancing Script', cursive;
             margin: 10px auto;
         }
         .fortune-result {
             font-size: 18px;
+            font-family: 'Dancing Script', cursive;
             margin-top: 10px;
         }
         .phone-gif {
@@ -105,10 +110,22 @@
             width: 300px;
             height: auto;
         }
+        #model-viewer-2 {
+            width: 80%;
+            height: 600px;
+        }
+        .circle-spider {
+            position: absolute;
+            top: 120px;
+            right: 10px;
+            width: 200px;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <h1>💖 Wilkommen in meinem Treppenhaus 💖</h1>
+    <img src="circle-spider.gif" alt="Circle Spider" class="circle-spider">
     <p class="subtitle">things are not always as they seem</p>
     
     <model-viewer id="model-viewer" src="treppenhaus-armgart.glb"
@@ -133,9 +150,9 @@
         <p class="fortune-result" id="fortuneResult"></p>
     </div>
     
-    <model-viewer id="model-viewer-2" src="treppenhaus-armgart.glb"
-                  ios-src="treppenhaus-armgart.usdz"
-                  alt="Treppenhaus"
+    <model-viewer id="model-viewer-2" src="magicball.glb"
+                  ios-src="magicball.usdz"
+                  alt="Magicball"
                   ar
                   auto-rotate
                   camera-controls
