@@ -27,6 +27,7 @@
         .subtitle {
             font-size: 4vw;
             text-shadow: 1px 1px 3px black;
+            font-family: 'comic sans', cursive;
             margin-top: 5vw;
         }
         model-viewer, .loading-container, .fortune-box {
@@ -50,10 +51,9 @@
             border: none;
             font-size: 4vw;
             cursor: pointer;
-            font-family: 'comic sans', regular;
+            font-family: 'comic sans', cursive;
         }
         .fortune-result {
-            font-family: 'comic sans', regular;
             font-size: 4vw;
             margin-top: 3vw;
         }
@@ -143,11 +143,10 @@
         
         function getFortune() {
             const fortunes = [
+                "✨ You are the main character today! ✨",
                 "👀 Someone is watching on you… 👀",
                 "🌟 Expect a surprise message soon! 🌟",
-                "💅 You’re serving LOOKS today, queen! 💅",
-                "💀 Your have to be extra strong today! 💀"
-                "😠 Someone is angry with you 😠"
+                "💀 Your have to be extra strong today! 💀",
                 "‼️ RUN ‼️"
             ];
             document.getElementById("fortuneResult").innerText = fortunes[Math.floor(Math.random() * fortunes.length)];
