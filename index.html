@@ -50,9 +50,10 @@
             border: none;
             font-size: 4vw;
             cursor: pointer;
-            font-family: 'Dancing Script', cursive;
+            font-family: 'comic sans', regular;
         }
         .fortune-result {
+            font-family: 'comic sans', regular;
             font-size: 4vw;
             margin-top: 3vw;
         }
@@ -142,11 +143,12 @@
         
         function getFortune() {
             const fortunes = [
-                "✨ You are the main character today! ✨",
                 "👀 Someone is watching on you… 👀",
                 "🌟 Expect a surprise message soon! 🌟",
                 "💅 You’re serving LOOKS today, queen! 💅",
                 "💀 Your have to be extra strong today! 💀"
+                "😠 Someone is angry with you 😠"
+                "‼️ RUN ‼️"
             ];
             document.getElementById("fortuneResult").innerText = fortunes[Math.floor(Math.random() * fortunes.length)];
             document.getElementById("fortuneBox").classList.add("show-result");
@@ -154,4 +156,3 @@
     </script>
 </body>
 </html>
-
