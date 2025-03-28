@@ -59,14 +59,14 @@
         .phone-gif {
             width: 20vw;
             position: absolute;
-            top: 40%;
+            top: 60%; /* Move phone gifs further down on mobile */
         }
         .phone-left { left: 5%; }
         .phone-right { right: 5%; }
         .bottom-center {
             width: 50vw;
             position: absolute;
-            bottom: 10vw;
+            bottom: 15vw;
             left: 50%;
             transform: translateX(-50%);
         }
@@ -80,11 +80,26 @@
             right: 5vw;
             width: 25vw;
         }
+        .fortune-gif {
+            max-width: 80%;
+            height: auto;
+        }
+        .you-suck {
+            position: absolute;
+            bottom: 10vw;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40vw;
+        }
         @media (max-width: 768px) {
             h1 { font-size: 6vw; }
             .subtitle { font-size: 5vw; }
             .fortune-button { font-size: 5vw; padding: 4vw; }
             .fortune-result { font-size: 5vw; }
+            .fortune-gif { max-width: 60%; }
+            .phone-gif {
+                top: 65%; /* Further move phone gifs down on mobile */
+            }
         }
     </style>
 </head>
@@ -113,7 +128,7 @@
     
     <img src="phone.gif" alt="Ringing Phone" class="phone-gif phone-left">
     <img src="phone.gif" alt="Ringing Phone" class="phone-gif phone-right">
-    <img src="you-suck.gif" alt="You Suck" class="bottom-center">
+    <img src="you-suck.gif" alt="You Suck" class="you-suck">
     
     <script>
         document.addEventListener("DOMContentLoaded", () => {
