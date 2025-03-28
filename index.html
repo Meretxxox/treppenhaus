@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>mein treppenhaus</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -14,93 +14,77 @@
             text-align: center;
             overflow-y: auto;
             position: relative;
-            min-height: 200vh;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
         h1 {
-            font-size: 36px;
+            font-size: 5vw;
             text-shadow: 2px 2px 4px lightpink;
             font-family: 'Press Start 2P', cursive;
-            margin-top: 150px;
+            margin-top: 10vw;
         }
         .subtitle {
-            font-size: 30px;
+            font-size: 4vw;
             text-shadow: 1px 1px 3px lightpink;
-            margin-top: 40px;
+            margin-top: 5vw;
         }
         model-viewer, .loading-container, .fortune-box {
             display: block;
-            margin: 20px auto;
+            margin: 5vw auto;
+            width: 90%;
         }
         .loading-container, .fortune-box {
-            width: 50%;
             background: white;
-            padding: 10px;
+            padding: 3vw;
             border: 3px dashed hotpink;
-        }
-        .loading-bar {
-            width: 0%;
-            height: 20px;
-            background: repeating-linear-gradient(45deg, pink 0%, pink 10px, lightpink 10px, lightpink 20px);
-            animation: moveStripes 1s linear infinite, loadProgress 3s forwards;
-        }
-        @keyframes moveStripes {
-            from { background-position: 0 0; }
-            to { background-position: 40px 0; }
-        }
-        @keyframes loadProgress {
-            from { width: 0%; }
-            to { width: 100%; }
         }
         .fortune-box {
             display: none;
             text-align: center;
-            transition: height 0.3s ease;
-        }
-        .fortune-box.show-result {
-            height: auto;
-            padding: 5px;
-        }
-        .fortune-gif, .phone-gif, .bottom-center {
-            display: block;
-            margin: 10px auto;
         }
         .fortune-button {
             background: hotpink;
             color: white;
-            padding: 10px;
+            padding: 3vw;
             border: none;
-            font-size: 16px;
+            font-size: 4vw;
             cursor: pointer;
             font-family: 'Dancing Script', cursive;
         }
         .fortune-result {
-            font-size: 18px;
-            margin-top: 10px;
+            font-size: 4vw;
+            margin-top: 3vw;
         }
         .phone-gif {
+            width: 20vw;
             position: absolute;
             top: 40%;
-            transform: translateY(-50%);
-            width: 150px;
         }
-        .phone-left { left: 10%; }
-        .phone-right { right: 10%; }
+        .phone-left { left: 5%; }
+        .phone-right { right: 5%; }
         .bottom-center {
+            width: 50vw;
             position: absolute;
-            bottom: -50px;
+            bottom: 10vw;
             left: 50%;
             transform: translateX(-50%);
-            width: 300px;
         }
         #model-viewer-2 {
-            width: 80%;
-            height: 600px;
+            width: 100%;
+            height: auto;
         }
         .circle-spider {
             position: absolute;
-            top: 120px;
-            right: 10px;
-            width: 200px;
+            top: 10vw;
+            right: 5vw;
+            width: 25vw;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 6vw; }
+            .subtitle { font-size: 5vw; }
+            .fortune-button { font-size: 5vw; padding: 4vw; }
+            .fortune-result { font-size: 5vw; }
         }
     </style>
 </head>
@@ -122,8 +106,6 @@
         <button class="fortune-button" onclick="getFortune()">Get Your Fortune</button>
         <p class="fortune-result" id="fortuneResult"></p>
     </div>
-    
-    <model-viewer id="model-viewer-2" src="magicball.glb" ios-src="magicball.usdz" alt="Magicball" ar auto-rotate camera-controls ar-modes="webxr scene-viewer quick-look" environment-image="neutral"></model-viewer>
     
     <audio autoplay loop>
         <source src="crazy.mp3" type="audio/mp3">
