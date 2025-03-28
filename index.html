@@ -10,9 +10,8 @@
         body {
             background: pink url('background.gif') repeat;
             color: hotpink;
-            font-family: 'Dancing Script', cursive, sans-serif;
+            font-family: 'Dancing Script', cursive;
             text-align: center;
-            cursor: url('https://cur.cursors-4u.net/nature/nat-11/nat1076.cur'), auto;
             overflow-y: auto;
             position: relative;
             min-height: 200vh;
@@ -22,23 +21,18 @@
             text-shadow: 2px 2px 4px lightpink;
             font-family: 'Press Start 2P', cursive;
             margin-top: 150px;
-            position: relative;
-            display: inline-block;
         }
         .subtitle {
             font-size: 30px;
-            color: hotpink;
             text-shadow: 1px 1px 3px lightpink;
-            font-family: 'Dancing Script', cursive;
             margin-top: 40px;
         }
-        model-viewer {
+        model-viewer, .loading-container, .fortune-box {
             display: block;
             margin: 20px auto;
         }
         .loading-container, .fortune-box {
             width: 50%;
-            margin: 60px auto;
             background: white;
             padding: 10px;
             border: 3px dashed hotpink;
@@ -47,7 +41,6 @@
             width: 0%;
             height: 20px;
             background: repeating-linear-gradient(45deg, pink 0%, pink 10px, lightpink 10px, lightpink 20px);
-            background-size: 40px 40px;
             animation: moveStripes 1s linear infinite, loadProgress 3s forwards;
         }
         @keyframes moveStripes {
@@ -67,11 +60,9 @@
             height: auto;
             padding: 5px;
         }
-        .fortune-gif {
-            width: 80px;
-            height: auto;
+        .fortune-gif, .phone-gif, .bottom-center {
             display: block;
-            margin: 0 auto 10px;
+            margin: 10px auto;
         }
         .fortune-button {
             background: hotpink;
@@ -80,13 +71,10 @@
             border: none;
             font-size: 16px;
             cursor: pointer;
-            display: block;
             font-family: 'Dancing Script', cursive;
-            margin: 10px auto;
         }
         .fortune-result {
             font-size: 18px;
-            font-family: 'Dancing Script', cursive;
             margin-top: 10px;
         }
         .phone-gif {
@@ -94,21 +82,15 @@
             top: 40%;
             transform: translateY(-50%);
             width: 150px;
-            height: auto;
         }
-        .phone-left {
-            left: 10%;
-        }
-        .phone-right {
-            right: 10%;
-        }
+        .phone-left { left: 10%; }
+        .phone-right { right: 10%; }
         .bottom-center {
             position: absolute;
             bottom: -50px;
             left: 50%;
             transform: translateX(-50%);
             width: 300px;
-            height: auto;
         }
         #model-viewer-2 {
             width: 80%;
@@ -119,7 +101,6 @@
             top: 120px;
             right: 10px;
             width: 200px;
-            height: auto;
         }
     </style>
 </head>
@@ -128,16 +109,8 @@
     <img src="circle-spider.gif" alt="Circle Spider" class="circle-spider">
     <p class="subtitle">things are not always as they seem</p>
     
-    <model-viewer id="model-viewer" src="treppenhaus-armgart.glb"
-                  ios-src="treppenhaus-armgart.usdz"
-                  alt="Treppenhaus"
-                  ar
-                  auto-rotate
-                  camera-controls
-                  ar-modes="webxr scene-viewer quick-look" 
-                  environment-image="neutral">   
-    </model-viewer>
-
+    <model-viewer id="model-viewer" src="magicball.glb" ios-src="magicball.usdz" alt="Treppenhaus" ar auto-rotate camera-controls ar-modes="webxr scene-viewer quick-look" environment-image="neutral"></model-viewer>
+    
     <div class="loading-container" id="loadingContainer">
         <p>Loading…</p>
         <div class="loading-bar" id="loadingBar"></div>
@@ -150,18 +123,10 @@
         <p class="fortune-result" id="fortuneResult"></p>
     </div>
     
-    <model-viewer id="model-viewer-2" src="magicball.glb"
-                  ios-src="magicball.usdz"
-                  alt="Magicball"
-                  ar
-                  auto-rotate
-                  camera-controls
-                  ar-modes="webxr scene-viewer quick-look" 
-                  environment-image="neutral">   
-    </model-viewer>
+    <model-viewer id="model-viewer-2" src="magicball.glb" ios-src="magicball.usdz" alt="Magicball" ar auto-rotate camera-controls ar-modes="webxr scene-viewer quick-look" environment-image="neutral"></model-viewer>
     
     <audio autoplay loop>
-        <source src="https://www.myinstants.com/media/sounds/paris-hilton-stars-are-blind.mp3" type="audio/mp3">
+        <source src="crazy.mp3" type="audio/mp3">
     </audio>
     
     <img src="phone.gif" alt="Ringing Phone" class="phone-gif phone-left">
@@ -169,23 +134,22 @@
     <img src="you-suck.gif" alt="You Suck" class="bottom-center">
     
     <script>
-        // Fake loading bar effect
-        setTimeout(() => {
-            document.getElementById("loadingContainer").style.display = "none";
-            document.getElementById("fortuneBox").style.display = "block";
-        }, 3000);
-
-        // Y2K fortune teller
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => {
+                document.getElementById("loadingContainer").style.display = "none";
+                document.getElementById("fortuneBox").style.display = "block";
+            }, 3000);
+        });
+        
         function getFortune() {
-            let fortunes = [
+            const fortunes = [
                 "✨ You are the main character today! ✨",
-                "💖 Someone is crushing on you… 👀",
-                "🌟 Expect a surprise message soon!",
-                "💅 You’re serving LOOKS today, queen!",
-                "🛜 Your Wi-Fi aura is extra strong today, use it wisely!"
+                "👀 Someone is watching on you… 👀",
+                "🌟 Expect a surprise message soon! 🌟",
+                "💅 You’re serving LOOKS today, queen! 💅",
+                "💀 Your have to be extra strong today! 💀"
             ];
-            let randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-            document.getElementById("fortuneResult").innerText = randomFortune;
+            document.getElementById("fortuneResult").innerText = fortunes[Math.floor(Math.random() * fortunes.length)];
             document.getElementById("fortuneBox").classList.add("show-result");
         }
     </script>
