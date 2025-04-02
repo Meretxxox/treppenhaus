@@ -10,6 +10,7 @@
         body {
             background: pink url('background.gif') repeat;
             color: hotpink;
+            text-shadow: 2px 2px 4px black;
             font-family: 'Arial', sans-serif;
             text-align: center;
             overflow-y: auto;
@@ -27,6 +28,7 @@
         .subtitle {
             font-size: 6vw;
             text-shadow: 2px 2px 4px black;
+             font-family: 'Dancing Script', cursive;
             margin-top: 5vw;
         }
         model-viewer, .loading-container, .fortune-box {
@@ -57,17 +59,15 @@
         }
         .phone-gif {
             width: 20vw;
-            position: absolute;
-            top: 60%; 
+            position: relative;
+            top: 5vw;
+            margin: 2vw;
         }
-        .phone-left { left: 5%; }
-        .phone-right { right: 5%; }
+        .phone-left { left: 0; }
+        .phone-right { right: 0; }
         .bottom-center {
             width: 50vw;
-            position: absolute;
-            bottom: 15vw;
-            left: 50%;
-            transform: translateX(-50%);
+            margin: 5vw auto;
         }
         #model-viewer-2 {
             width: 100%;
@@ -84,11 +84,9 @@
             height: auto;
         }
         .you-suck {
-            position: absolute;
-            bottom: 2vw;
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative;
             width: 40vw;
+            margin-top: 5vw;
         }
     </style>
 </head>
@@ -108,6 +106,10 @@
     </div>
     
     <model-viewer id="model-viewer" src="magicball.glb" ios-src="magicball.usdz" alt="Treppenhaus" ar auto-rotate camera-controls ar-modes="webxr scene-viewer quick-look" environment-image="neutral"></model-viewer>
+
+    <img src="phone.gif" alt="Ringing Phone" class="phone-gif phone-left">
+    <img src="phone.gif" alt="Ringing Phone" class="phone-gif phone-right">
+    <img src="you-suck.gif" alt="You Suck" class="you-suck">
     
     <div class="loading-container" id="loadingContainer">
         <p>Loading…</p>
@@ -117,10 +119,6 @@
     <audio autoplay loop>
         <source src="crazy.mp3" type="audio/mp3">
     </audio>
-    
-    <img src="phone.gif" alt="Ringing Phone" class="phone-gif phone-left">
-    <img src="phone.gif" alt="Ringing Phone" class="phone-gif phone-right">
-    <img src="you-suck.gif" alt="You Suck" class="you-suck">
     
     <script>
         document.addEventListener("DOMContentLoaded", () => {
