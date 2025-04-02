@@ -10,14 +10,14 @@
         body {
             background: pink url('background.gif') repeat;
             color: hotpink;
-            text-shadow: 2px 2px 4px black;
+            text-shadow: 2px 2px 4px lightpink;
             font-family: 'Arial', sans-serif;
             text-align: center;
             overflow-y: auto;
             position: relative;
             min-height: 100vh;
             margin: 0;
-            padding: 0;
+            padding: 0 5vw;
         }
         h1 {
             font-size: 5vw;
@@ -28,8 +28,12 @@
         .subtitle {
             font-size: 6vw;
             text-shadow: 2px 2px 4px black;
-             font-family: 'Dancing Script', cursive;
+            font-family: 'Dancing Script', cursive;
             margin-top: 5vw;
+        }
+        p {
+            max-width: 90%;
+            margin: 0 auto 2vw auto;
         }
         model-viewer, .loading-container, .fortune-box {
             display: block;
@@ -50,43 +54,35 @@
             color: white;
             padding: 3vw;
             border: none;
-            font-size: 4vw;
+            font-size: 3vw;
             cursor: pointer;
         }
         .fortune-result {
             font-size: 4vw;
             margin-top: 3vw;
         }
+        .bottom-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 2vw;
+            left: 0;
+            right: 0;
+            width: 100%;
+        }
         .phone-gif {
             width: 20vw;
-            position: relative;
-            top: 5vw;
             margin: 2vw;
         }
-        .phone-left { left: 0; }
-        .phone-right { right: 0; }
-        .bottom-center {
-            width: 50vw;
-            margin: 5vw auto;
-        }
-        #model-viewer-2 {
-            width: 100%;
-            height: auto;
+        .you-suck {
+            width: 40vw;
         }
         .circle-spider {
             position: absolute;
             top: 10vw;
             right: 5vw;
             width: 25vw;
-        }
-        .fortune-gif {
-            max-width: 80%;
-            height: auto;
-        }
-        .you-suck {
-            position: relative;
-            width: 40vw;
-            margin-top: 5vw;
         }
     </style>
 </head>
@@ -106,10 +102,12 @@
     </div>
     
     <model-viewer id="model-viewer" src="magicball.glb" ios-src="magicball.usdz" alt="Treppenhaus" ar auto-rotate camera-controls ar-modes="webxr scene-viewer quick-look" environment-image="neutral"></model-viewer>
-
-    <img src="phone.gif" alt="Ringing Phone" class="phone-gif phone-left">
-    <img src="phone.gif" alt="Ringing Phone" class="phone-gif phone-right">
-    <img src="you-suck.gif" alt="You Suck" class="you-suck">
+    
+    <div class="bottom-container">
+        <img src="phone.gif" alt="Ringing Phone" class="phone-gif">
+        <img src="you-suck.gif" alt="You Suck" class="you-suck">
+        <img src="phone.gif" alt="Ringing Phone" class="phone-gif">
+    </div>
     
     <div class="loading-container" id="loadingContainer">
         <p>Loading…</p>
