@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>mein treppenhaus</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Arial&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
         body {
             background: pink url('background.gif') repeat;
             color: hotpink;
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Arial', sans-serif;
             text-align: center;
             overflow-y: auto;
             position: relative;
@@ -25,9 +25,8 @@
             margin-top: 10vw;
         }
         .subtitle {
-            font-size: 4vw;
-            text-shadow: 1px 1px 3px black;
-            font-family: 'Arial', cursive;
+            font-size: 6vw;
+            text-shadow: 2px 2px 4px black;
             margin-top: 5vw;
         }
         model-viewer, .loading-container, .fortune-box {
@@ -49,9 +48,8 @@
             color: white;
             padding: 3vw;
             border: none;
-            font-size: 3vw;
+            font-size: 4vw;
             cursor: pointer;
-            font-family: 'Arial', cursive;
         }
         .fortune-result {
             font-size: 4vw;
@@ -60,7 +58,7 @@
         .phone-gif {
             width: 20vw;
             position: absolute;
-            top: 60%; /* Move phone gifs further down on mobile */
+            top: 60%; 
         }
         .phone-left { left: 5%; }
         .phone-right { right: 5%; }
@@ -87,42 +85,33 @@
         }
         .you-suck {
             position: absolute;
-            bottom: 2vw; /* Move "You Suck" gif further down on mobile */
+            bottom: 2vw;
             left: 50%;
             transform: translateX(-50%);
             width: 40vw;
-        }
-        @media (max-width: 768px) {
-            h1 { font-size: 6vw; }
-            .subtitle { font-size: 5vw; }
-            .fortune-button { font-size: 5vw; padding: 4vw; }
-            .fortune-result { font-size: 5vw; }
-            .fortune-gif { max-width: 60%; }
-            .phone-gif {
-                top: 75%; /* Further move phone gifs down on mobile */
-            }
-            .you-suck {
-                bottom: 5vw; /* Move "You Suck" gif further down */
-            }
         }
     </style>
 </head>
 <body>
     <h1> Wilkommen in meinem Treppenhaus </h1>
     <img src="circle-spider.gif" alt="Circle Spider" class="circle-spider">
-    <p class="subtitle">wo du nie weißt wem du begegnest</p>
+    <p class="subtitle">Wo du nie weißt auf wen du triffst</p>
+    
+    <p style="font-family: 'Arial', sans-serif;">Willkommen bei den in meinem Treppenhaus!  
+    Hier ist jeder Gang durchs Treppenhaus eine neue Geschichte. Du weißt nie, wem du begegnest oder welche Überraschungen auf dich warten – sei es ein freundliches Gespräch, eine nette Geste oder ein unerwarteter Moment. Tauche ein, erkunde das Unbekannte und lass jeden Tag eine Geschichte erzählen.  
+    Bist du bereit für eine Überraschung?</p>
+    
+    <div class="fortune-box" id="fortuneBox">
+        <h2>🔮 Was wird heute passieren? 🔮</h2>
+        <button class="fortune-button" onclick="getFortune()"> Teste dein Glück</button>
+        <p class="fortune-result" id="fortuneResult"></p>
+    </div>
     
     <model-viewer id="model-viewer" src="magicball.glb" ios-src="magicball.usdz" alt="Treppenhaus" ar auto-rotate camera-controls ar-modes="webxr scene-viewer quick-look" environment-image="neutral"></model-viewer>
     
     <div class="loading-container" id="loadingContainer">
         <p>Loading…</p>
         <div class="loading-bar" id="loadingBar"></div>
-    </div>
-    
-    <div class="fortune-box" id="fortuneBox">
-        <h2>🔮 Wie beginnt heute dein Tag? 🔮</h2>
-        <button class="fortune-button" onclick="getFortune()">hier clicken</button>
-        <p class="fortune-result" id="fortuneResult"></p>
     </div>
     
     <audio autoplay loop>
