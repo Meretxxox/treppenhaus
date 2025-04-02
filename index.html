@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>mein treppenhaus</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Arial&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
         body {
             background: pink url('background.gif') repeat;
-            color: lightpink;
-            font-family: 'Arial', sans-serif;
+            color: hotpink;
+            font-family: 'Dancing Script', cursive;
             text-align: center;
             overflow-y: auto;
             position: relative;
             min-height: 100vh;
             margin: 0;
             padding: 0;
-            font-size: 1.2em;
         }
         h1 {
             font-size: 5vw;
@@ -26,8 +25,9 @@
             margin-top: 10vw;
         }
         .subtitle {
-            font-size: 6vw;
-            text-shadow: 2px 2px 4px black;
+            font-size: 4vw;
+            text-shadow: 1px 1px 3px black;
+            font-family: 'Comic Sans', regular;
             margin-top: 5vw;
         }
         model-viewer, .loading-container, .fortune-box {
@@ -51,6 +51,7 @@
             border: none;
             font-size: 4vw;
             cursor: pointer;
+            font-family: 'Comic Sans', regular;
         }
         .fortune-result {
             font-size: 4vw;
@@ -59,7 +60,7 @@
         .phone-gif {
             width: 20vw;
             position: absolute;
-            top: 60%; 
+            top: 60%; /* Move phone gifs further down on mobile */
         }
         .phone-left { left: 5%; }
         .phone-right { right: 5%; }
@@ -86,19 +87,32 @@
         }
         .you-suck {
             position: absolute;
-            bottom: 2vw;
+            bottom: 2vw; /* Move "You Suck" gif further down on mobile */
             left: 50%;
             transform: translateX(-50%);
             width: 40vw;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 6vw; }
+            .subtitle { font-size: 5vw; }
+            .fortune-button { font-size: 5vw; padding: 4vw; }
+            .fortune-result { font-size: 5vw; }
+            .fortune-gif { max-width: 60%; }
+            .phone-gif {
+                top: 75%; /* Further move phone gifs down on mobile */
+            }
+            .you-suck {
+                bottom: 5vw; /* Move "You Suck" gif further down */
+            }
         }
     </style>
 </head>
 <body>
     <h1> Wilkommen in meinem Treppenhaus </h1>
     <img src="circle-spider.gif" alt="Circle Spider" class="circle-spider">
-    <p class="subtitle">Wo du nie weißt auf wen du triffst</p>
+    <p class="subtitle">wo du nie weißt auf wen du triffst</p>
     
-    <p>Willkommen bei den in meinem Treppenhaus!  
+     <p style="font-family: 'Arial', sans-serif;">Willkommen bei den in meinem Treppenhaus!  
     Hier ist jeder Gang durchs Treppenhaus eine neue Geschichte. Du weißt nie, wem du begegnest oder welche Überraschungen auf dich warten – sei es ein freundliches Gespräch, eine nette Geste oder ein unerwarteter Moment. Tauche ein, erkunde das Unbekannte und lass jeden Tag eine Geschichte erzählen.  
     Bist du bereit für eine Überraschung?</p>
     
@@ -110,8 +124,8 @@
     </div>
     
     <div class="fortune-box" id="fortuneBox">
-        <h2>🔮 Was wird heute passieren? 🔮</h2>
-        <button class="fortune-button" onclick="getFortune()"> Teste dein Glück</button>
+        <h2>🔮 Wie beginnt heute dein Tag? 🔮</h2>
+        <button class="fortune-button" onclick="getFortune()">Get Your Fortune</button>
         <p class="fortune-result" id="fortuneResult"></p>
     </div>
     
@@ -133,11 +147,11 @@
         
         function getFortune() {
             const fortunes = [
-                "✨ Heute siehst du wunderschön aus ✨",
-                "👀 Jemand beobachtet dich... 👀",
-                "🌟 Erwarte einen unfreundlichen anruf 🌟",
-                "💀 Heute musst du stark bleiben! 💀",
-                "‼️ LAUF ‼️"
+                "✨ You are the main character today! ✨",
+                "👀 Someone is watching on you… 👀",
+                "🌟 Expect a surprise message soon! 🌟",
+                "💀 Your have to be extra strong today! 💀",
+                "‼️ RUN ‼️"
             ];
             document.getElementById("fortuneResult").innerText = fortunes[Math.floor(Math.random() * fortunes.length)];
             document.getElementById("fortuneBox").classList.add("show-result");
