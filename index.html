@@ -27,7 +27,7 @@
         .subtitle {
             font-size: 4vw;
             text-shadow: 1px 1px 3px black;
-            font-family: 'Comic Sans', regular;
+            font-family: 'Arial', cursive;
             margin-top: 5vw;
         }
         model-viewer, .loading-container, .fortune-box {
@@ -49,9 +49,9 @@
             color: white;
             padding: 3vw;
             border: none;
-            font-size: 4vw;
+            font-size: 3vw;
             cursor: pointer;
-            font-family: 'Comic Sans', regular;
+            font-family: 'Arial', cursive;
         }
         .fortune-result {
             font-size: 4vw;
@@ -110,7 +110,7 @@
 <body>
     <h1> Wilkommen in meinem Treppenhaus </h1>
     <img src="circle-spider.gif" alt="Circle Spider" class="circle-spider">
-    <p class="subtitle">things are not always as they seem</p>
+    <p class="subtitle">wo du nie weißt wem du begegnest</p>
     
     <model-viewer id="model-viewer" src="magicball.glb" ios-src="magicball.usdz" alt="Treppenhaus" ar auto-rotate camera-controls ar-modes="webxr scene-viewer quick-look" environment-image="neutral"></model-viewer>
     
@@ -121,7 +121,7 @@
     
     <div class="fortune-box" id="fortuneBox">
         <h2>🔮 Wie beginnt heute dein Tag? 🔮</h2>
-        <button class="fortune-button" onclick="getFortune()">Get Your Fortune</button>
+        <button class="fortune-button" onclick="getFortune()">hier clicken</button>
         <p class="fortune-result" id="fortuneResult"></p>
     </div>
     
@@ -143,11 +143,11 @@
         
         function getFortune() {
             const fortunes = [
-                "✨ You are the main character today! ✨",
-                "👀 Someone is watching on you… 👀",
-                "🌟 Expect a surprise message soon! 🌟",
-                "💀 Your have to be extra strong today! 💀",
-                "‼️ RUN ‼️"
+                "✨ Heute siehst du wunderschön aus ✨",
+                "👀 Jemand beobachtet dich... 👀",
+                "🌟 Erwarte einen unfreundlichen anruf 🌟",
+                "💀 Heute musst du stark bleiben! 💀",
+                "‼️ LAUF ‼️"
             ];
             document.getElementById("fortuneResult").innerText = fortunes[Math.floor(Math.random() * fortunes.length)];
             document.getElementById("fortuneBox").classList.add("show-result");
