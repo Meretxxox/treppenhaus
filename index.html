@@ -100,41 +100,54 @@
         <button class="fortune-button" onclick="getFortune()"> Teste dein Glück</button>
         <p class="fortune-result" id="fortuneResult"></p>
     </div>
-    
+
     <model-viewer id="model-viewer" src="magicball.glb" ios-src="magicball.usdz" alt="Treppenhaus" ar auto-rotate camera-controls ar-modes="webxr scene-viewer quick-look" environment-image="neutral"></model-viewer>
-    
+
     <div class="bottom-container">
         <img src="phone.gif" alt="Ringing Phone" class="phone-gif">
         <img src="you-suck.gif" alt="You Suck" class="you-suck">
         <img src="phone.gif" alt="Ringing Phone" class="phone-gif">
     </div>
-    
+
     <div class="loading-container" id="loadingContainer">
         <p>Loading…</p>
         <div class="loading-bar" id="loadingBar"></div>
     </div>
-    
+
     <audio autoplay loop>
         <source src="crazy.mp3" type="audio/mp3">
     </audio>
-    
+
     <script>
+        const modelViewer = document.getElementById("model-viewer");
+
+        const models = [
+            "magicball.glb",
+            "watcher.glb",
+            "phone.glb",
+            "skull.glb",
+            "danger.glb"
+        ];
+
+        const fortunes = [
+            "✨ Heute siehst du wunderschön aus ✨",
+            "👀 Jemand beobachtet dich... 👀",
+            "🌟 Erwarte einen unfreundlichen anruf 🌟",
+            "💀 Heute musst du stark bleiben! 💀",
+            "‼️ LAUF ‼️"
+        ];
+
         document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 document.getElementById("loadingContainer").style.display = "none";
                 document.getElementById("fortuneBox").style.display = "block";
             }, 3000);
         });
-        
+
         function getFortune() {
-            const fortunes = [
-                "✨ Heute siehst du wunderschön aus ✨",
-                "👀 Jemand beobachtet dich... 👀",
-                "🌟 Erwarte einen unfreundlichen anruf 🌟",
-                "💀 Heute musst du stark bleiben! 💀",
-                "‼️ LAUF ‼️"
-            ];
-            document.getElementById("fortuneResult").innerText = fortunes[Math.floor(Math.random() * fortunes.length)];
+            const index = Math.floor(Math.random() * fortunes.length);
+            document.getElementById("fortuneResult").innerText = fortunes[index];
+            modelViewer.setAttribute("src", models[index]);
             document.getElementById("fortuneBox").classList.add("show-result");
         }
     </script>
