@@ -9,8 +9,8 @@
     <style>
         body {
             background: pink url('background.gif') repeat;
-            color: hotpink;
-            text-shadow: 2px 2px 4px lightpink;
+            color: lightpink;
+            text-shadow: 2px 2px 4px hotpink;
             font-family: 'Arial', sans-serif;
             text-align: center;
             overflow-y: auto;
@@ -21,13 +21,13 @@
         }
         h1 {
             font-size: 5vw;
-            text-shadow: 2px 2px 4px lightpink;
+            text-shadow: 2px 2px 4px white;
             font-family: 'Press Start 2P', cursive;
             margin-top: 10vw;
         }
         .subtitle {
             font-size: 6vw;
-            text-shadow: 2px 2px 4px black;
+            text-shadow: 2px 2px 4px white;
             font-family: 'Dancing Script', cursive;
             margin-top: 5vw;
         }
@@ -76,7 +76,7 @@
             margin: 2vw;
         }
         .you-suck {
-            width: 40vw;
+            width: 20vw;
         }
         .circle-spider {
             position: absolute;
@@ -122,15 +122,15 @@
         const modelViewer = document.getElementById("model-viewer");
 
         const models = [
+            "cake.glb",
+            "watchers.glb",
+            "text.glb",
             "magicball.glb",
-            "watcher.glb",
-            "phone.glb",
-            "skull.glb",
-            "danger.glb"
+            "run.glb"
         ];
 
         const fortunes = [
-            "✨ Heute siehst du wunderschön aus ✨",
+            "✨ Heute erwartet dich ein schöner Tag ✨",
             "👀 Jemand beobachtet dich... 👀",
             "🌟 Erwarte einen unfreundlichen anruf 🌟",
             "💀 Heute musst du stark bleiben! 💀",
