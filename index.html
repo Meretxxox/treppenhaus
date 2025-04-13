@@ -83,19 +83,18 @@
     <h1> Wilkommen in meinem Treppenhaus </h1>
     <img src="circle-spider.gif" alt="Circle Spider" class="circle-spider">
     <p class="subtitle">Wo du nie weißt auf wen du triffst</p>
-    
+
     <p style="font-family: 'Arial', sans-serif;">Willkommen bei den in meinem Treppenhaus!  
     Hier ist jeder Gang durchs Treppenhaus eine neue Geschichte. Du weißt nie, wem du begegnest oder welche Überraschungen auf dich warten – sei es ein freundliches Gespräch, eine nette Geste oder ein unerwarteter Moment. Tauche ein, erkunde das Unbekannte und lass jeden Tag eine Geschichte erzählen.  
     Bist du bereit für eine Überraschung?</p>
-    
+
     <div class="fortune-box" id="fortuneBox">
         <h2>🔮 Was wird heute passieren? 🔮</h2>
         <button class="fortune-button" onclick="getFortune()"> Teste dein Glück</button>
         <p class="fortune-result" id="fortuneResult"></p>
     </div>
 
-    <model-viewer id="model-viewer" src="magicball.glb" ios-src="magicball.usdz" alt="Treppenhaus" ar auto-rotate camera-controls ar-modes="webxr scene-viewer quick-look" environment-image="neutral"></model-viewer>
-
+    <model-viewer id="model-viewer" src="cake.glb" ios-src="cake.usdz" alt="Treppenhaus" ar auto-rotate camera-controls ar-modes="webxr scene-viewer quick-look" environment-image="neutral"></model-viewer>
 
     <div class="loading-container" id="loadingContainer">
         <p>Loading…</p>
@@ -117,6 +116,14 @@
             "run.glb"
         ];
 
+        const usdzModels = [
+            "cake.usdz",
+            "watchers.usdz",
+            "text.usdz",
+            "magicball.usdz",
+            "run.usdz"
+        ];
+
         const fortunes = [
             "✨ Heute erwartet dich ein schöner Tag ✨",
             "👀 Jemand beobachtet dich... 👀",
@@ -136,6 +143,7 @@
             const index = Math.floor(Math.random() * fortunes.length);
             document.getElementById("fortuneResult").innerText = fortunes[index];
             modelViewer.setAttribute("src", models[index]);
+            modelViewer.setAttribute("ios-src", usdzModels[index]);
             document.getElementById("fortuneBox").classList.add("show-result");
         }
     </script>
